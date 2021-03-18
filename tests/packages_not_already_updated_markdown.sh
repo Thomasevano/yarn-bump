@@ -21,7 +21,7 @@ function remove_created_commit() {
 # it should display message when no package are updated
 # given
 current_dir=$PWD
-directory_under_test='./npm-directory'
+directory_under_test='./yarn-directory'
 expected_output="Package|Old|New
 -|-|-
 lodash|4.17.19|4.17.20"
@@ -32,7 +32,7 @@ cd $directory_under_test || exit
 stub_npm_test
 
 # when
-result=$(/bin/bash ../../npm-bump -m | tail -n 4)
+result=$(/bin/bash ../../yarn-bump -m | tail -n 4)
 commit_message=$(git log -1 --pretty=%B)
 
 restore_npm_test

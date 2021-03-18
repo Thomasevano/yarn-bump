@@ -9,7 +9,7 @@ initial_git_state=$(git log -1 --pretty=%B)
 
 # when
 cd $directory_under_test || exit 1
-result=$(/bin/bash ../../npm-bump)
+result=$(/bin/bash ../../yarn-bump)
 cd "$current_dir" || exit 1
 
 # then

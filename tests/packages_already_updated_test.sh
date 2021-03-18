@@ -3,15 +3,15 @@
 # it should display message when no package are updated
 # given
 current_dir=$PWD
-directory_under_test='./npm-directory'
+directory_under_test='./yarn-directory'
 expected_output="No package updated"
 initial_git_state=$(git log -1 --pretty=%B)
 
 cd $directory_under_test || exit 1
-/bin/bash ../../npm-bump &> /dev/null
+/bin/bash ../../yarn-bump &> /dev/null
 
 # when
-result=$(/bin/bash ../../npm-bump)
+result=$(/bin/bash ../../yarn-bump)
 cd "$current_dir" || exit 1
 
 # then
