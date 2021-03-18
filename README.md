@@ -1,17 +1,23 @@
-# NPM-BUMP 
+# YARN-BUMP
 
-npm-bump is a Bash Script for bump npm version.
+This is a fork of [npm-bump](https://github.com/vincenthardouin/npm-bump). I fin it very useful so as a yarn user on some project i wanted to have the same for yarn.
+
+yarn-bump is a Bash Script to bump package version with [yarn version 1](https://github.com/yarnpkg/yarn).
+
+My goal is to do the same for [yarn version 2](https://github.com/yarnpkg/berry) as yarn change a lot of thing in this version 2 it will be done via a a yarn plugin wich is a new feature of yarn
 
 It exists because task of update packages are frequent and boring.
 This script bump versions of packages that have no tests issues.
 
-## Installation 
+## Installation
 
 ### With [Homebrew](https://brew.sh/)
-On OS X, you can install npm-bump via [Homebrew](https://brew.sh/):
-```bash 
-brew tap vincenthardouin/npm-bump
-brew install npm-bump
+
+On Mac OS, you can install yarn-bump via [Homebrew](https://brew.sh/):
+
+```bash
+brew tap thomasevano/yarn-bump
+brew install yarn-bump
 ```
 
 ### With make
@@ -21,33 +27,42 @@ make install
 ```
 
 ### Classic method
-1. Clone repository 
+
+1. Clone repository
+
 ```bash
-git clone git@github.com:VincentHardouin/npm-bump.git
+git clone https://github.com/Thomasevano/yarn-bump.git
 ```
 
 2. Go in directory
+
 ```bash
-cd npm-bump
+cd yarn-bump
 ```
 
 3. Add permission
+
 ```bash
-chmod 777 npm-bump
+chmod 777 yarn-bump
 ```
 
 4. Create symlink
+
 ```bash
-ln -sf ${PWD}/npm-bump /usr/local/bin
+ln -sf ${PWD}/yarn-bump /usr/local/bin
 ```
 
-## Usage 
+## Usage
 
-On directory who have `package.json` and `package-lock.json` 
-Run : 
+On directory where you have `package.json` and `yarn.lock`
+Run :
+
 ```bash
-npm-bump
+yarn-bump
 ```
+
+:warning: If you use Jest put `--watchAll=false` a the end of test script line in `package.json`, so it doesn't enter in interactive mode
+
 And wait :hourglass: with :coffee:
 
 ### Optional arguments
@@ -58,12 +73,14 @@ And wait :hourglass: with :coffee:
   -e, --exclude             exclude package name seprated by a comma (e.g -e lodash,mocha)
   -nt, --no-test            does not run test command when update package
 ``` 
+```
 
-## Features 
-- Script available globally 
-- Verify outdated package 
-- Use `npm install` instead of `npm update`
+## Features
+
+- Script available globally
+- Verify outdated package
+- Use `yarn add` instead of `yarn upgrade`
 - Try to install latest version of each package
-- Run `npm test` after each `npm install` to verify exit code
-- Create bump commit for each package 
+- Run `yarn test` after each `yarn add` for verify exit code
+- Create bump commit for each package
 - Show updated packages and packages not updated at the end
