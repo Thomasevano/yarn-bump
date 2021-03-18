@@ -55,12 +55,12 @@ function show_help() {
 }
 
 function commit_bump() {
-  git add package.json package-lock.json && git commit -m "Bump ${1} from ${2} to ${3}"
+  git add package.json yarn.lock && git commit -m "Bump ${1} from ${2} to ${3}"
 }
 
 function undo_changes() {
-  git checkout package.json package-lock.json
-  npm install
+  git checkout package.json yarn.lock
+  yarn
 }
 
 function add_updated_package_informations() {
@@ -71,9 +71,9 @@ function add_updated_package_informations() {
 
 function bump_version() {
   if [ -z ${exclude+x} ]; then
-    outdated_packages=$(npm outdated | tail -n +2)
+    outdated_packages=$(yarn outdated | tail -n +7)
   else
-    outdated_packages=$(npm outdated | tail -n +2 | grep -Ev "$exclude")
+    outdated_packages=$(yarn outdated | tail -n +7 | grep -Ev "$exclude")
   fi
 
   if [ -n "$outdated_packages" ]; then
@@ -81,7 +81,7 @@ function bump_version() {
       echo "Try to bump ${package} from ${actual_version} to ${latest_version}"
 
       if [ -z ${no_test} ]; then
-        npm install $package@$latest_version && npm test
+        npm install $package@$latest_version && yarn test
       else
         npm install $package@$latest_version
       fi
@@ -126,15 +126,15 @@ function show_no_updated_package() {
   fi
 }
 
-function npm_files_exist() {
-  if [[ ! -f ${PWD}/package.json || ! -f ${PWD}/package-lock.json ]]; then
+function yarn_files_exist() {
+  if [[ ! -f ${PWD}/package.json || ! -f ${PWD}/yarn.lock ]]; then
     echo "No package.json in directory"
     exit 1
   fi
 }
 
 handle_arguments "$@"
-npm_files_exist
+yarn_files_exist
 bump_version
 if [ ${#updated_packages[@]} -eq 0 ]; then
   printf "%s\n" "No package updated"
