@@ -81,9 +81,9 @@ function bump_version() {
       echo "Try to bump ${package} from ${actual_version} to ${latest_version}"
 
       if [ -z ${no_test} ]; then
-        npm install $package@$latest_version && yarn test
+        yarn add $package@$latest_version && yarn test
       else
-        npm install $package@$latest_version
+        yarn add $package@$latest_version
       fi
 
       if [ $? -eq 0 ]; then

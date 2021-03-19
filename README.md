@@ -1,24 +1,15 @@
 # YARN-BUMP
 
-This is a fork of [npm-bump](https://github.com/vincenthardouin/npm-bump). I fin it very useful so as a yarn user on some project i wanted to have the same for yarn.
+This is a fork of [npm-bump](https://github.com/vincenthardouin/npm-bump). I find it very useful so as a yarn user on some project i wanted to have the same.
 
 yarn-bump is a Bash Script to bump package version with [yarn version 1](https://github.com/yarnpkg/yarn).
 
-My goal is to do the same for [yarn version 2](https://github.com/yarnpkg/berry) as yarn change a lot of thing in this version 2 it will be done via a a yarn plugin wich is a new feature of yarn
+My goal is to do the same for [yarn version 2](https://github.com/yarnpkg/berry) as yarn change a lot of thing in this version 2 it will be done via a yarn plugin wich is a new feature of version 2.
 
 It exists because task of update packages are frequent and boring.
 This script bump versions of packages that have no tests issues.
 
 ## Installation
-
-### With [Homebrew](https://brew.sh/)
-
-On Mac OS, you can install yarn-bump via [Homebrew](https://brew.sh/):
-
-```bash
-brew tap thomasevano/yarn-bump
-brew install yarn-bump
-```
 
 ### With make
 
@@ -81,6 +72,6 @@ And wait :hourglass: with :coffee:
 - Verify outdated package
 - Use `yarn add` instead of `yarn upgrade`
 - Try to install latest version of each package
-- Run `yarn test` after each `yarn add` for verify exit code
+- Run `yarn test` after each `yarn add` to verify exit code
 - Create bump commit for each package
 - Show updated packages and packages not updated at the end
