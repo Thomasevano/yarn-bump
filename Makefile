@@ -1,3 +1,3 @@
 install:
-	chmod 777 npm-bump
-	ln -sf ${PWD}/npm-bump /usr/local/bin
+	chmod 777 yarn-bump
+	ln -sf ${PWD}/yarn-bump /usr/local/bin
